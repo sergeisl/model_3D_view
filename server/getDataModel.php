@@ -5,9 +5,7 @@ $data->execute(array('id' => $_GET['id']));
 $result = $data->fetchAll();
 
 if (count($result)) {
-
-echo json_encode($result);
-
+    echo json_encode($result);
 } else {
     echo "Нет записей для вывода";
 }
