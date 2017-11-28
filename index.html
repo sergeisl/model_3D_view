@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  	<head>
+	    <title></title>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/THREEx.WindowResize.js"></script>
+		<link rel="stylesheet" href="css/main.css">	
+		<link rel="stylesheet" href="css/load.css">	
+		<style>
+			html { 
+				//overflow:  hidden; 
+			}
+			body {
+				padding: 0;
+				margin: 0;
+			}
+		</style>
+		<script src="js/three.min.js"></script>
+		<!-- <script src="js/OrbitControls.js"></script>-->
+		<script src="js/OBJLoader.js"></script>
+		<script type="text/javascript" src="js/FirstPersonControls.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/api.js"></script>
+  	</head>
+  
+  	<body>
+  		<div class="Add">
+			<form action="server/handler.php" method="post" id="my_form" enctype="multipart/form-data">
+					<label for="Название cценs">Название</label><br>
+					<input type="text" name="name"><br><br>
+					<div class="file-upload" style="display: inline-flex; margin:0; background: #737070;">
+					<label><input type="file" id="myfile" name="myfile"  onchange="res();"><span id="res">Сцена OBJ</span></label><br>
+					</div>
+					<input type="submit" id="submit" class="sendsubmit" value="Загрузить">
+					<!-- <span id="add_field">+</span> -->
+					
+			</form>    
+			<script> 
+			function res(){
+				let name = $('#myfile')[0].value;
+				name = name.split('\\');
+				$('#res').empty().prepend(name[name.length-1]).appendTo('#res');
+			}
+			</script>     
+			<a href="#"  onclick="console.log($('#myfile')[0].value);">sss</a>
+		</div>
+		<div class="textureAdd" >
+		<div id="additional_fields" style="overflow-y: scroll; max-height: 500px;"></div>
+		</div>
+ 		<div class="rotateButtonSelected moveButton"><p id ="rotateButton"></p></div>
+    <div class="Button1" onclick="$('.textureAdd').toggleClass('Button','Button1');"><img src="img/move.png" width="48" height="48" alt="" ></div>
+    <div class="moveButton1 moveButton"><img src="img/w.png" width="54" height="46" alt=""></div>
+    <div class="moveButton2 moveButton"><img src="img/a.png" width="54" height="46" alt=""></div> 
+    <div class="moveButton3 moveButton"><img src="img/s.png" width="54" height="46" alt=""></div> 
+    <div class="moveButton4 moveButton"><img src="img/d.png" width="54" height="46" alt=""></div>  
+    <div id="render"></div>  
+  </body>
+</html>
+
+
